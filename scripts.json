@@ -1,0 +1,32 @@
+{
+  "$schema": "https://deno.land/x/denon/schema.json",
+
+  "scripts": {
+    "start": {
+      "cmd": "deno run ./src/server/mod.js",
+      "desc": "runs my server instance",
+      "allow": [
+        "env",
+        "read",
+        "net"
+      ],
+      "unstable": false
+    },
+    "bundle": {
+      "cmd": "deno bundle ./src/shared/browser.js ./src/shared/browser.bundle.js",
+      "desc": "bundles entire app into a single file",
+      "watch": false
+    },
+    "test": {
+      "cmd": "deno test ./src/ --coverage",
+      "desc": "runs tests",
+      "allow": [
+        "env",
+        "read",
+        "net"
+      ],
+      "unstable": false,
+      "watch": false
+    }
+  }
+}
