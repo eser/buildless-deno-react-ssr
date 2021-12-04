@@ -1,4 +1,4 @@
-import reactDomServer from "https://jspm.dev/react-dom/server";
+import reactDomServer from "https://cdn.skypack.dev/react-dom@17.0.1/server";
 import * as oak from "https://deno.land/x/oak@v10.0.0/mod.ts";
 import * as dejs from "https://deno.land/x/dejs@0.10.2/mod.ts";
 import * as fs from "https://deno.land/std@0.117.0/fs/mod.ts";
