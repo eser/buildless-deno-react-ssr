@@ -1,3 +1,3 @@
-import ReactDom from "https://cdn.skypack.dev/react-dom@17.0.1";
+import ReactDom from "https://esm.sh/react-dom@17.0.2";
 
 export { ReactDom };
