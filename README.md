@@ -20,7 +20,7 @@ you'd like to use.
 Then run the server,
 
 ```sh
-$ deno run -A src/server/mod.js
+$ deno task start
 ```
 
 Open http://localhost:8000 to view it in the browser.

@@ -1,0 +1,11 @@
+# OS-specific files
+.DS_Store
+
+# dotenv environment variables file
+.env
+
+# coverage files
+etc/cov_profile/*.json
+
+# hidden
+tmp/

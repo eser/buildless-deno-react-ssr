@@ -1,10 +1,19 @@
 {
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true
+  },
   "lint": {
     "files": {
       "include": [
-        "src/"
+        "src/",
+        "mod.ts",
+        "*.md",
+        "*.json"
       ],
-      "exclude": []
+      "exclude": [
+        "tmp/"
+      ]
     },
     "rules": {
       "tags": [
@@ -21,9 +30,14 @@
   "fmt": {
     "files": {
       "include": [
-        "src/"
+        "src/",
+        "mod.ts",
+        "*.md",
+        "*.json"
       ],
-      "exclude": []
+      "exclude": [
+        "tmp/"
+      ]
     },
     "options": {
       "useTabs": true,
@@ -32,5 +46,23 @@
       "singleQuote": false,
       "proseWrap": "preserve"
     }
+  },
+  "test": {
+    "files": {
+      "include": [
+        "src/"
+      ],
+      "exclude": [
+        "tmp/"
+      ]
+    }
+  },
+  "tasks": {
+    "start": "deno run -A src/server/mod.js",
+    "bundle": "deno bundle ./src/shared/browser.js ./src/shared/browser.bundle.js",
+    "test": "deno test ./src/ --coverage=./etc/cov_profile",
+    "test:coverage": "deno coverage ./etc/cov_profile",
+    "test:generate-lcov": "deno coverage ./etc/cov_profile --lcov > ./etc/cov_profile/cov_profile.lcov",
+    "bench": "deno bench ./src/ --unstable"
   }
 }
