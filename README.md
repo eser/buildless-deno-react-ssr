@@ -4,6 +4,9 @@ This is a React starter/boilerplate project. Comparing to its alternatives, it
 completely works [buildless](https://buildless.site/) with the power of
 [Deno](https://deno.land/) and [htm](https://github.com/developit/htm).
 
+You can see the latest running version of the code deployed on deno.dev at
+[buildless-deno-react-ssr.deno.dev](https://buildless-deno-react-ssr.deno.dev/).
+
 _This project is currently in early stages of its development. Descriptions or
 instructions are not mature yet as well as the project itself._
 
@@ -23,7 +26,7 @@ Then run the server,
 $ deno task start
 ```
 
-Open http://localhost:8000 to view it in the browser.
+Open http://localhost:8080 to view it in the browser.
 
 ## Todo List
 
