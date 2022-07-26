@@ -138,4 +138,10 @@ async function main() {
 	}
 }
 
-export { getCurrentDirectory, main, renderTemplate, settings };
+export {
+	getCurrentDirectory,
+	main,
+	renderTemplate,
+	resolveStaticFile,
+	settings,
+};

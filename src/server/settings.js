@@ -8,7 +8,7 @@ const staticMapping = {
 	"/favicon.ico": { path: "public/assets/favicon.ico" },
 };
 
-const port = 8000;
+const port = 8080;
 
 const settings = {
 	title,
