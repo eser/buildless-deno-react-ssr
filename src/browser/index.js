@@ -1,11 +1,16 @@
 // deno-lint-ignore-file no-undef
 
-import { ReactDom } from "./deps.js";
+import { BrowserRouter, ReactDom } from "./deps.js";
 
 function renderRootComponent(shared, target) {
 	const environmentContext = {
 		platform: "browser",
 	};
+
+	// const rootElement = shared.html`
+	//   <${BrowserRouter}>
+	//     ${shared.getRootElement(environmentContext)}
+	//   <//>`;
 
 	const rootElement = shared.getRootElement(environmentContext);
 

@@ -1,11 +1,16 @@
 import shared from "../shared/mod.js";
-import { dejs, fs, oak, path, reactDomServer } from "./deps.js";
+import { dejs, fs, oak, path, reactDomServer, StaticRouter } from "./deps.js";
 import settings from "./settings.js";
 
-function renderRootComponent() {
+function renderRootComponent(url) {
 	const environmentContext = {
 		platform: "server",
 	};
+
+	// const rootElement = shared.html`
+	//   <${StaticRouter} location=${url.pathname}>
+	//     ${shared.getRootElement(environmentContext)}
+	//   <//>`;
 
 	const rootElement = shared.getRootElement(environmentContext);
 
@@ -103,7 +108,7 @@ async function staticFiles(ctx, next) {
 }
 
 async function generateResponse(ctx) {
-	const rootContent = renderRootComponent();
+	const rootContent = renderRootComponent(ctx.request.url);
 
 	const output = await renderTemplate("index", {
 		title: settings.title,
