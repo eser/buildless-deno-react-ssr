@@ -58,7 +58,8 @@
     }
   },
   "tasks": {
-    "start": "deno run -A src/server/mod.js",
+    "start": "deno run -A src/start.js",
+    "generate": "deno run -A src/cli/generate.js",
     "bundle": "deno bundle ./src/shared/browser.js ./src/shared/browser.bundle.js",
     "test": "deno test ./src/ --coverage=./etc/cov_profile",
     "test:coverage": "deno coverage ./etc/cov_profile",

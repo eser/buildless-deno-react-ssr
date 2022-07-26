@@ -19,7 +19,7 @@ function getCurrentDirectory() {
 async function renderTemplate(template, variables) {
 	const cwd = getCurrentDirectory();
 	const output = await dejs.renderFile(
-		`${cwd}/templates/${template}.html.ejs`,
+		`${cwd}/../shared/templates/${template}.html.ejs`,
 		variables,
 	);
 
@@ -110,10 +110,20 @@ async function generateResponse(ctx) {
 	ctx.response.body = output;
 }
 
-const server = new oak.Application();
+async function main() {
+	const server = new oak.Application();
 
-server.use(errorHandler);
-server.use(staticFiles);
-server.use(generateResponse);
+	server.use(errorHandler);
+	server.use(staticFiles);
+	server.use(generateResponse);
 
-await server.listen({ port: settings.port });
+	console.log(`Starting server on http://localhost:${settings.port}`);
+
+	try {
+		await server.listen({ port: settings.port });
+	} catch (ex) {
+		console.error(ex);
+	}
+}
+
+export { getCurrentDirectory, main, renderTemplate };
