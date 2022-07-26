@@ -1,7 +1,12 @@
 import { html, Link, Route, Switch } from "./deps.js";
 
 function Home(props) {
-	return html`<h1>Hello world from ${props.env?.platform ?? "nowhere"}</h1>`;
+	return html`<h1>
+    Hello world from ${props.env?.platform ?? "nowhere"}
+    <br />
+    <br />
+    <${Link} to="/about">About me<//>
+  </h1>`;
 }
 
 function About(props) {
