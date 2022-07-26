@@ -1,3 +1,5 @@
+const title = "buildless-deno-react-ssr project";
+
 const staticMapping = {
 	"/assets/scripts/browser/": { path: "src/browser/" },
 	"/assets/scripts/shared/": { path: "src/shared/" },
@@ -9,6 +11,7 @@ const staticMapping = {
 const port = 8000;
 
 const settings = {
+	title,
 	staticMapping,
 	port,
 };

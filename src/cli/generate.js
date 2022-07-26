@@ -1,8 +1,13 @@
-import { getCurrentDirectory, renderTemplate } from "../server/mod.js";
+import {
+	getCurrentDirectory,
+	renderTemplate,
+	settings,
+} from "../server/mod.js";
 import { streams } from "../server/deps.js";
 
 async function main() {
 	const reader = await renderTemplate("index", {
+		title: settings.title,
 		content: "",
 	});
 

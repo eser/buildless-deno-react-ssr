@@ -33,7 +33,9 @@ async function errorHandler(ctx, next) {
 		console.error("Unhandled Error:", e.message);
 		console.error(e.stack);
 
-		const output = await renderTemplate("error", {});
+		const output = await renderTemplate("error", {
+			title: settings.title,
+		});
 
 		ctx.response.status = 500;
 		ctx.response.body = output;
@@ -104,6 +106,7 @@ async function generateResponse(ctx) {
 	const rootContent = renderRootComponent();
 
 	const output = await renderTemplate("index", {
+		title: settings.title,
 		content: rootContent,
 	});
 
@@ -126,4 +129,4 @@ async function main() {
 	}
 }
 
-export { getCurrentDirectory, main, renderTemplate };
+export { getCurrentDirectory, main, renderTemplate, settings };
