@@ -121,18 +121,20 @@ async function generateResponse(ctx) {
 }
 
 async function main() {
-	const server = new oak.Application();
-
-	server.use(errorHandler);
-	server.use(staticFiles);
-	server.use(generateResponse);
-
-	console.log(`Starting server on http://localhost:${settings.port}`);
+	await shared.configureLogger();
 
 	try {
+		const server = new oak.Application();
+
+		server.use(errorHandler);
+		server.use(staticFiles);
+		server.use(generateResponse);
+
+		shared.log.info(`Starting server on http://localhost:${settings.port}`);
+
 		await server.listen({ port: settings.port });
 	} catch (ex) {
-		console.error(ex);
+		shared.log.error(ex);
 	}
 }
 
