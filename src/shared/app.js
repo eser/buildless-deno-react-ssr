@@ -1,7 +1,24 @@
-import { html } from "./deps.js";
+import { html, Link, Route, Switch } from "./deps.js";
+
+function Home(props) {
+	return html`<h1>Hello world from ${props.env?.platform ?? "nowhere"}</h1>`;
+}
+
+function About(props) {
+	return html`<h1>About me</h1>`;
+}
 
 function App(props) {
-	return html`<h1>Hello world from ${props.env?.platform ?? "nowhere"}</h1>`;
+	return html`
+    <${Switch}>
+      <${Route} path="/about">
+        <${About} />
+      <//>
+      <${Route} path="/">
+        <${Home} ...${props} />
+      <//>
+    <//>
+  `;
 }
 
 export { App as default };

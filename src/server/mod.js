@@ -7,12 +7,14 @@ function renderRootComponent(url) {
 		platform: "server",
 	};
 
-	// const rootElement = shared.html`
-	//   <${StaticRouter} location=${url.pathname}>
-	//     ${shared.getRootElement(environmentContext)}
-	//   <//>`;
+	const context = {};
 
-	const rootElement = shared.getRootElement(environmentContext);
+	const rootElement = shared.html`
+	  <${StaticRouter} location=${url.pathname} context=${context}>
+	    ${shared.getRootElement(environmentContext)}
+	  <//>`;
+
+	// const rootElement = shared.getRootElement(environmentContext);
 
 	return reactDomServer.renderToString(rootElement);
 }

@@ -7,12 +7,12 @@ function renderRootComponent(shared, target) {
 		platform: "browser",
 	};
 
-	// const rootElement = shared.html`
-	//   <${BrowserRouter}>
-	//     ${shared.getRootElement(environmentContext)}
-	//   <//>`;
+	const rootElement = shared.html`
+	  <${BrowserRouter}>
+	    ${shared.getRootElement(environmentContext)}
+	  <//>`;
 
-	const rootElement = shared.getRootElement(environmentContext);
+	// const rootElement = shared.getRootElement(environmentContext);
 
 	return ReactDom.hydrate(rootElement, target);
 }
