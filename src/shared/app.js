@@ -1,33 +1,40 @@
-import { html, Link, Route, Switch } from "./deps.js";
+import { html, Link, Route, SUI, Switch } from "./deps.js";
 
 function Home(props) {
 	return html`
-    <h1>Hello world</h1>
-    <p>
-      this page rendered from ${props.env?.platform ?? "nowhere"}
-      <br />
-      <br />
-      <${Link} to="/about">About me<//>
-    </p>
+    <${SUI.Container} text>
+      <${SUI.Header} size="large">Hello world<//>
+      <p>
+        this page rendered from ${props.env?.platform ?? "nowhere"}
+        <br />
+        <br />
+        <${SUI.Button} as=${Link} to="/about">About me<//>
+      </p>
+    <//>
   `;
 }
 
 function About(props) {
 	return html`
-    <h1>About me</h1>
-    <p>
-      this page is empty for now
-    </p>
+    <${SUI.Container} text>
+      <${SUI.Header} size="large">About me<//>
+      <p>
+        this page is empty for now
+        <br />
+        <br />
+        <${SUI.Button} as=${Link} to="/">Go back<//>
+      </p>
+    <//>
   `;
 }
 
 function App(props) {
 	return html`
     <${Switch}>
-      <${Route} path="/about">
+      <${Route} path="/about" exact strict>
         <${About} />
       <//>
-      <${Route} path="/">
+      <${Route} path="/" exact strict>
         <${Home} ...${props} />
       <//>
     <//>
